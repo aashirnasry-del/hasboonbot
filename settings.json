@@ -1,13 +1,13 @@
 {
   "name": "AFK Bot",
   "bot-account": {
-    "username": "Technoblade",
-    "password": "",
+    "username": "sepaispider",
+    "password": "senpai67",
     "type": "offline"
   },
   "server": {
-    "ip": "slobos13.aternos.me",
-    "port": 29195,
+    "ip": "PVPpracticeO.aternos.me",
+    "port": 60322,
     "version": "1.21.1"
   },
   "position": {
