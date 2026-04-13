@@ -439,62 +439,8 @@ function createBot() {
       });
     });
 
-    // =====================
-  // 🛡️ AUTO ARMOR
-  // =====================
-  function autoEquipArmor(bot) {
-    const armorSlots = {
-      head: ['netherite_helmet', 'diamond_helmet', 'iron_helmet'],
-      torso: ['netherite_chestplate', 'diamond_chestplate', 'iron_chestplate'],
-      legs: ['netherite_leggings', 'diamond_leggings', 'iron_leggings'],
-      feet: ['netherite_boots', 'diamond_boots', 'iron_boots']
-    }
 
-    for (let slot in armorSlots) {
-      for (let name of armorSlots[slot]) {
-        const item = bot.inventory.items().find(i => i.name === name)
-        if (item) {
-          bot.equip(item, slot).catch(() => {})
-          break
-        }
-      }
-    }
-  }
-
-  // =====================
-  // 💚 AUTO TOTEM
-  // =====================
-  function autoTotem(bot) {
-    const offhandSlot = bot.getEquipmentDestSlot('off-hand')
-    const current = bot.inventory.slots[offhandSlot]
-
-    if (!current || current.name !== 'totem_of_undying') {
-      const totem = bot.inventory.items().find(i => i.name === 'totem_of_undying')
-      if (totem) {
-        bot.equip(totem, 'off-hand').catch(() => {})
-      }
-    }
-  }
-
-  // =====================
-  // 🍎 AUTO GAPPLE
-  // =====================
-  function autoGapple(bot) {
-    if (bot.health <= 12) {
-      const item = bot.inventory.items().find(i =>
-        i.name === 'golden_apple' || i.name === 'enchanted_golden_apple'
-      )
-
-      if (item) {
-        bot.equip(item, 'hand').then(() => {
-          bot.activateItem()
-          console.log("🍎 Eating gapple")
-        }).catch(() => {})
-      }
-    }
-  }
-
-
+    
     // Handle disconnection
     bot.on('end', (reason) => {
       const wasSpawned = botState.connected;
